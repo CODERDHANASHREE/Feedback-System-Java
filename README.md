@@ -1,30 +1,66 @@
-# Feedback System (Servlet + JDBC + MySQL)
+# FeedbackApp - AI Integrated Feedback Management System
 
-This is a web-based feedback system where users can submit their feedback using a form.
+## Overview
+
+This is a web-based feedback management system where users can submit feedback through a form. The system stores feedback in MySQL and analyzes feedback using an AI service layer to generate sentiment, summary, and suggestions.
 
 ## Features
-- User enters name, email, rating, and comments
-- Data is sent to Java Servlet using POST method
-- Servlet processes the request
-- Data is stored in MySQL database using JDBC
+
+- User submits name, email, rating, and comments
+- Data is processed using Java Servlet
+- Feedback stored in MySQL database using JDBC
+- AI analysis of feedback
+- Generates:
+  - Sentiment analysis
+  - Feedback summary
+  - Improvement suggestions
+- Stores AI analysis along with original feedback
 
 ## Technologies Used
+
 - Java
-- Servlet (Jakarta Servlet API)
+- Jakarta Servlet
 - JDBC
 - MySQL
 - HTML
+- JavaScript
+- Apache Tomcat
+- JSON Processing
+- AI Service Integration
 
 ## Project Flow
-1. User fills feedback form (HTML)
-2. Data is sent to FeedbackServlet
-3. Servlet retrieves data using request.getParameter()
-4. JDBC is used to connect to MySQL
-5. Data is inserted into database using PreparedStatement
+
+User submits feedback
+↓
+HTML Form
+↓
+FeedbackServlet
+↓
+JDBC stores feedback
+↓
+AIService analyzes comments
+↓
+AI result stored in MySQL
+↓
+Analysis displayed to user
+
+## Database
+
+Feedback table contains:
+
+- id
+- name
+- email
+- rating
+- comments
+- ai_analysis
 
 ## How to Run
-1. Run schema.sql in MySQL
-2. Add MySQL connector JAR
-3. Deploy project on Apache Tomcat
-4. Open browser:
-   http://localhost:8080/MyExpenseApp/feedback.html
+
+1. Run `schema.sql` in MySQL
+2. Add MySQL connector and JSON JAR files
+3. Configure database credentials
+4. Deploy project on Apache Tomcat
+5. Open:
+
+http://localhost:8080/FeedbackApp/feedback.html
